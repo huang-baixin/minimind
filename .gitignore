@@ -4,6 +4,7 @@ website/
 docs-minimind/
 dataset/.msc
 dataset/pretrain_hq.jsonl
+test_out
 
 # Python虚拟环境
 minimind_env/
