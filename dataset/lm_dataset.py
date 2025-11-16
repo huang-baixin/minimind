@@ -14,13 +14,17 @@ from transformers import AutoTokenizer
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
 
 
-def load_tokenizer(tokenizer_path=None):
+def load_tokenizer(tokenizer_path=None, qwen_tokenizer=False):
     """
     加载tokenizer，支持多种来源：
     - 外部模型路径（Hugging Face模型名或本地路径）
     - 项目默认tokenizer
+    - Qwen系列tokenizer
     """
-    if tokenizer_path:
+    if qwen_tokenizer:
+        print("加载Qwen tokenizer: Qwen/Qwen2-7B")
+        return AutoTokenizer.from_pretrained("Qwen/Qwen2-7B")
+    elif tokenizer_path:
         print(f"加载外部tokenizer: {tokenizer_path}")
         return AutoTokenizer.from_pretrained(tokenizer_path)
     else:
