@@ -20,7 +20,7 @@ def train_tokenizer():
                 data = json.loads(line)
                 yield data['text']
 
-    data_path = '../dataset/pretrain_hq.jsonl'
+    data_path = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'dataset', 'pretrain_hq.jsonl')
 
     # 初始化tokenizer
     tokenizer = Tokenizer(models.BPE())
@@ -52,10 +52,10 @@ def train_tokenizer():
     assert tokenizer.token_to_id("<|im_end|>") == 2
 
     # 保存tokenizer
-    tokenizer_dir = "../model/"
+    tokenizer_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), 'model')
     os.makedirs(tokenizer_dir, exist_ok=True)
     tokenizer.save(os.path.join(tokenizer_dir, "tokenizer.json"))
-    tokenizer.model.save("../model/")
+    tokenizer.model.save(tokenizer_dir)
 
     # 手动创建配置文件
     config = {

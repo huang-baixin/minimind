@@ -9,8 +9,23 @@ import torch
 from sklearn.model_selection import train_test_split
 import os
 import ast
+from transformers import AutoTokenizer
 
 os.environ["TOKENIZERS_PARALLELISM"] = "false"
+
+
+def load_tokenizer(tokenizer_path=None):
+    """
+    加载tokenizer，支持多种来源：
+    - 外部模型路径（Hugging Face模型名或本地路径）
+    - 项目默认tokenizer
+    """
+    if tokenizer_path:
+        print(f"加载外部tokenizer: {tokenizer_path}")
+        return AutoTokenizer.from_pretrained(tokenizer_path)
+    else:
+        print("加载项目默认tokenizer: ./model")
+        return AutoTokenizer.from_pretrained("./model")
 
 
 class PretrainDataset(Dataset):
