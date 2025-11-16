@@ -2,3 +2,31 @@ model/__pycache__
 out
 website/
 docs-minimind/
+dataset/.msc
+dataset/pretrain_hq.jsonl
+
+# Python虚拟环境
+minimind_env/
+venv/
+env/
+.venv/
+*.pyc
+__pycache__/
+*.egg-info/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# IDE和编辑器文件
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 日志和临时文件
+*.log
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
