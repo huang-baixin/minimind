@@ -31,3 +31,4 @@ htmlcov/
 *.temp
 .DS_Store
 Thumbs.db
+minimind_venv/

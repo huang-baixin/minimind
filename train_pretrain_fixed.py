@@ -120,7 +120,7 @@ def load_tokenizer():
 
 def main():
     # 训练参数
-    epochs = 1
+    epochs = 1  # 训练轮数（epochs）：整个训练数据集被完整遍历的次数
     batch_size = 8
     learning_rate = 5e-4
     max_length = 512
